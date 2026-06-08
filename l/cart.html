@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shopping Cart</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+body{
+    background:#0f172a;
+    color:white;
+    padding:40px;
+}
+
+h1{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.cart-container{
+    max-width:1000px;
+    margin:auto;
+}
+
+.cart-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:rgba(255,255,255,0.08);
+
+    margin-bottom:20px;
+
+    padding:20px;
+
+    border-radius:15px;
+}
+
+.remove-btn{
+    background:red;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    cursor:pointer;
+    border-radius:8px;
+}
+
+.total{
+    text-align:right;
+    font-size:2rem;
+    margin-top:30px;
+}
+
+.checkout-btn{
+    background:#f59e0b;
+    border:none;
+    padding:15px 30px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:18px;
+}
+
+</style>
+
+</head>
+<body>
+
+<h1>🛒 Shopping Cart</h1>
+
+<div class="cart-container" id="cartContainer"></div>
+
+<div class="total">
+    Total: ₹<span id="total">0</span>
+</div>
+
+<script>
+
+let cart =
+JSON.parse(localStorage.getItem("cart")) || [];
+
+let container =
+document.getElementById("cartContainer");
+
+let total = 0;
+
+function renderCart(){
+
+container.innerHTML="";
+
+total=0;
+
+cart.forEach((item,index)=>{
+
+total += item.price;
+
+container.innerHTML += `
+<div class="cart-item">
+
+<div>
+<h3>${item.name}</h3>
+<p>₹${item.price}</p>
+</div>
+
+<button class="remove-btn"
+onclick="removeItem(${index})">
+Remove
+</button>
+
+</div>
+`;
+
+});
+
+document.getElementById("total")
+.innerText = total;
+
+}
+
+function removeItem(index){
+
+cart.splice(index,1);
+
+localStorage.setItem(
+"cart",
+JSON.stringify(cart)
+);
+
+renderCart();
+
+}
+
+renderCart();
+
+</script>
+
+</body>
+</html>

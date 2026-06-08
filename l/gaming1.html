@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PlayStation 5 — Gaming Zone</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Exo+2:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent: #00e5ff;
+  --neon2: #7c3aed;
+  --fire: #f59e0b;
+  --bg: #060a12;
+  --card: rgba(255,255,255,0.04);
+  --border: rgba(255,255,255,0.07);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: white; font-family: 'Exo 2', sans-serif; overflow-x: hidden; }
+
+/* NAV */
+nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 48px; border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(6,10,18,0.88); backdrop-filter: blur(18px);
+}
+.nav-logo {
+  font-family: 'Rajdhani', sans-serif; font-size: 1.2rem; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none;
+  background: linear-gradient(135deg, var(--accent), #fff);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.nav-back {
+  display: inline-flex; align-items: center; gap: 8px;
+  color: rgba(255,255,255,0.55); text-decoration: none;
+  font-size: 0.88rem; font-weight: 500; letter-spacing: 0.04em;
+  text-transform: uppercase; transition: 0.3s;
+}
+.nav-back:hover { color: var(--accent); }
+
+/* HERO */
+.hero {
+  display: grid; grid-template-columns: 1fr 1fr;
+  min-height: 85vh; position: relative; overflow: hidden;
+}
+.hero-img-wrap { position: relative; overflow: hidden; min-height: 500px; }
+.hero-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; transition: 0.6s; }
+.hero-img-wrap img:hover { transform: scale(1.04); }
+.hero-img-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, var(--bg) 0%, rgba(6,10,18,0.3) 50%, transparent 100%);
+}
+
+/* scanlines on image */
+.hero-img-wrap::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(
+    0deg, transparent, transparent 3px,
+    rgba(0,0,0,0.10) 3px, rgba(0,0,0,0.10) 4px
+  );
+  pointer-events: none; z-index: 2;
+}
+
+.hero-content {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 70px 64px 70px 60px; position: relative; z-index: 1;
+}
+.hero-content::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 90% 70% at 60% 50%, rgba(0,229,255,0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-badge {
+  display: inline-block; font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--accent); border: 1px solid rgba(0,229,255,0.45);
+  background: rgba(0,229,255,0.08); padding: 6px 18px;
+  border-radius: 4px; margin-bottom: 22px; width: fit-content;
+}
+.hero-content h1 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(2.2rem, 4.5vw, 4rem);
+  font-weight: 700; line-height: 1.0;
+  letter-spacing: -0.01em; text-transform: uppercase;
+  text-shadow: 0 0 30px rgba(0,229,255,0.3);
+  margin-bottom: 16px;
+}
+.hero-tagline {
+  font-size: 1rem; color: rgba(255,255,255,0.5);
+  margin-bottom: 30px; line-height: 1.65; font-weight: 300;
+}
+.hero-price {
+  font-family: 'Rajdhani', sans-serif; font-size: 2.8rem;
+  font-weight: 700; color: var(--accent);
+  text-shadow: 0 0 20px rgba(0,229,255,0.4);
+  margin-bottom: 36px; letter-spacing: -0.01em;
+}
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 32px; border-radius: 6px; border: none; cursor: pointer;
+  background: var(--accent); color: #060a12;
+  font-family: 'Exo 2', sans-serif; font-weight: 700; font-size: 0.9rem;
+  letter-spacing: 0.06em; text-transform: uppercase; transition: 0.3s;
+}
+.btn-primary:hover { opacity: 0.85; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,229,255,0.35); }
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 26px; border-radius: 6px; cursor: pointer;
+  border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.65);
+  background: transparent; font-family: 'Exo 2', sans-serif;
+  font-weight: 500; font-size: 0.88rem; letter-spacing: 0.05em;
+  text-transform: uppercase; transition: 0.3s; text-decoration: none;
+}
+.btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ABOUT */
+.about-section {
+  max-width: 880px; margin: 0 auto; padding: 80px 48px;
+  text-align: center;
+}
+.section-label {
+  font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--accent); font-weight: 600; margin-bottom: 14px;
+}
+.about-section h2 {
+  font-family: 'Rajdhani', sans-serif; font-size: 2rem;
+  font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.about-section p {
+  font-size: 1.02rem; color: rgba(255,255,255,0.52);
+  line-height: 1.9; font-weight: 300;
+}
+
+/* DIVIDER */
+.divider {
+  height: 1px; background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0.25; max-width: 800px; margin: 0 auto;
+}
+
+/* SPECS */
+.specs-section {
+  max-width: 1100px; margin: 0 auto; padding: 70px 48px;
+}
+.specs-section h2 {
+  font-family: 'Rajdhani', sans-serif; font-size: 2rem;
+  font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase;
+  text-align: center; margin-bottom: 40px;
+}
+.specs-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 14px;
+}
+.spec-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 10px; padding: 20px 22px; transition: 0.3s;
+  border-left: 2px solid transparent;
+}
+.spec-card:hover { border-color: rgba(0,229,255,0.3); border-left-color: var(--accent); transform: translateX(4px); }
+.spec-label {
+  font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--accent); font-weight: 700; margin-bottom: 8px;
+}
+.spec-value { font-size: 0.92rem; color: rgba(255,255,255,0.8); line-height: 1.5; }
+
+/* CTA */
+.cta-section {
+  text-align: center; padding: 80px 48px;
+  position: relative; overflow: hidden;
+}
+.cta-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(0,229,255,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.cta-section h2 {
+  font-family: 'Rajdhani', sans-serif; font-size: 2.2rem;
+  font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em;
+  margin-bottom: 12px;
+}
+.cta-section p { color: rgba(255,255,255,0.38); margin-bottom: 36px; font-size: 0.95rem; }
+
+/* FOOTER */
+footer {
+  text-align: center; padding: 40px;
+  border-top: 1px solid var(--border); background: #040709;
+}
+footer h3 {
+  font-family: 'Rajdhani', sans-serif; font-size: 1.1rem;
+  font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  background: linear-gradient(135deg, var(--accent), #fff);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text; margin-bottom: 6px;
+}
+footer p { color: rgba(255,255,255,0.28); font-size: 0.85rem; }
+
+@media (max-width: 768px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-img-wrap { min-height: 300px; order: -1; }
+  .hero-content { padding: 40px 24px; }
+  nav { padding: 16px 24px; }
+  .specs-section, .about-section, .cta-section { padding-left: 24px; padding-right: 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="gaming.html" class="nav-logo"><i class="fa-solid fa-gamepad"></i> &nbsp;Gaming Zone</a>
+  <a href="gaming.html" class="nav-back"><i class="fa-solid fa-arrow-left"></i> All Products</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-img-wrap">
+    <img src="images/gaming1.png" alt="PlayStation 5">
+    <div class="hero-img-overlay"></div>
+  </div>
+  <div class="hero-content">
+    <span class="hero-badge"><i class="fa-solid fa-fire"></i> &nbsp;Hot</span>
+    <h1>PlayStation 5</h1>
+    <p class="hero-tagline">Play Has No Limits.</p>
+    <p class="hero-price">₹54,999</p>
+    <div class="hero-btns">
+      <button class="btn-primary"><i class="fa-solid fa-cart-plus"></i> Add To Cart</button>
+      <a href="gaming.html" class="btn-secondary"><i class="fa-solid fa-gamepad"></i> More Gear</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section">
+  <p class="section-label"><i class="fa-solid fa-circle-info"></i> &nbsp;Product Overview</p>
+  <h2>About This Product</h2>
+  <p>The PlayStation 5 is Sony's most powerful console ever, built from the ground up to deliver a generational leap in gaming. At its core is a custom AMD Zen 2 CPU and RDNA 2 GPU, capable of true 4K gaming at up to 120 frames per second with ray tracing. The revolutionary 825GB custom NVMe SSD eliminates load screens entirely, pulling in game assets at 5.5 GB/s — nearly 100x faster than a PS4. The iconic DualSense wireless controller reinvents how games feel, with haptic feedback that simulates everything from rainfall to the tension of a bowstring, and adaptive triggers that create real resistance. Whether you're exploring a vast open world or sprinting through an online battle arena, the PS5 makes every moment feel unmistakably real.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- SPECS -->
+<section class="specs-section">
+  <h2>Full Specifications</h2>
+  <div class="specs-grid">
+    <div class="spec-card"><div class="spec-label">CPU</div><div class="spec-value">AMD Zen 2 — 8 Cores / 16 Threads @ 3.5GHz</div></div>
+    <div class="spec-card"><div class="spec-label">GPU</div><div class="spec-value">AMD RDNA 2 — 10.28 TFLOPS</div></div>
+    <div class="spec-card"><div class="spec-label">RAM</div><div class="spec-value">16GB GDDR6</div></div>
+    <div class="spec-card"><div class="spec-label">Storage</div><div class="spec-value">825GB Custom NVMe SSD</div></div>
+    <div class="spec-card"><div class="spec-label">Resolution</div><div class="spec-value">Up to 8K · Native 4K · 120fps</div></div>
+    <div class="spec-card"><div class="spec-label">Disc Drive</div><div class="spec-value">Ultra HD Blu-ray</div></div>
+    <div class="spec-card"><div class="spec-label">Connectivity</div><div class="spec-value">USB-A, USB-C, HDMI 2.1, Wi-Fi 6, BT 5.1</div></div>
+    <div class="spec-card"><div class="spec-label">Controller</div><div class="spec-value">DualSense with haptic feedback & adaptive triggers</div></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Ready to Level Up?</h2>
+  <p>Free shipping across India &nbsp;·&nbsp; 1-year warranty &nbsp;·&nbsp; Easy returns</p>
+  <button class="btn-primary" style="font-size:0.95rem; padding:16px 44px; margin: 0 auto;">
+    <i class="fa-solid fa-bolt"></i> &nbsp;Buy Now — ₹54,999
+  </button>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <h3>Gaming Store</h3>
+  <p>Level Up Your Gaming Experience</p>
+</footer>
+
+</body>
+</html>

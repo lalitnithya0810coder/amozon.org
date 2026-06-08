@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Clone Pro</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
+
+            <div class="logo">
+                <img src="l/images/logo.png" alt="Logo">
+            </div>
+
+            <div class="search-box">
+                <input type="text"
+                id="search"
+                placeholder="Search products..."
+                onkeyup="searchProducts()">
+
+                <button>
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#products">Products</a></li>
+
+                <li>
+                    <button class="theme-btn"
+                    onclick="toggleTheme()">
+                    🌙
+                    </button>
+                </li>
+
+                <li>
+                    <button class="cart-btn"
+                    onclick="openCart()">
+                    🛒 <span id="cart-count">0</span>
+                    </button>
+                </li>
+            </ul>
+
+        </nav>
+    </header>
+
+    <!-- Hero Slider -->
+
+    <section class="slider">
+
+        <div class="slide active">
+            <img src="l/images/slide1.png" alt="">
+        </div>
+
+        <div class="slide">
+            <img src="l/images/slide2.png" alt="">
+        </div>
+
+        <div class="slide">
+            <img src="l/images/slide3.png" alt="">
+        </div>
+
+    </section>
+
+    <!-- Categories -->
+
+    <section id="categories">
+
+        <h2 class="section-title">
+            Shop By Category
+        </h2>
+
+        <div class="categories">
+
+            <a href="l/electronics.html" class="category-link">
+    <div class="category">
+        <i class="fas fa-laptop"></i>
+        <h3>Electronics</h3>
+    </div>
+</a>
+    
+            <a href="l/mobiles.html" class="category-link">
+    <div class="category">
+        <i class="fas fa-mobile-alt"></i>
+        <h3>Mobiles</h3>
+    </div>
+</a>
+
+            <a href="l/gaming.html" class="category-link">
+    <div class="category">
+        <i class="fas fa-gamepad"></i>
+        <h3>Gaming</h3>
+    </div>
+</a>
+
+            <a href="l/fashion.html" class="category-link">
+    <div class="category">
+        <i class="fas fa-tshirt"></i>
+        <h3>Fashion</h3>
+    </div>
+</a>
+
+            <a href="l/books.html" class="category-link">
+    <div class="category">
+        <i class="fas fa-book"></i>
+        <h3>Books</h3>
+    </div>
+</a>
+
+            <a href="l/home.html" class="category-link">
+    <div class="category">
+        <i class="fas fa-couch"></i>
+        <h3>Home & Kitchen</h3>
+    </div>
+</a>
+
+        </div>
+
+    </section>
+
+    <!-- Featured Products -->
+
+    <section id="products">
+
+        <h2 class="section-title">
+            Featured Products
+        </h2>
+
+        <div class="products">
+
+            <div class="product-card">
+
+                <img src="l/images/product1.jpg" alt="">
+
+                <h3>Wireless Headphones</h3>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐
+                </div>
+
+                <p class="price">₹2,499</p>
+
+                <div class="buttons">
+                    <button onclick="addToCart()">
+                        Add To Cart
+                    </button>
+
+                    <button class="wish">
+                        ❤️
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="product-card">
+
+                <img src="l/images/product2.png" alt="">
+
+                <h3>Smart Watch</h3>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐☆
+                </div>
+
+                <p class="price">₹3,999</p>
+
+                <div class="buttons">
+                    <button onclick="addToCart()">
+                        Add To Cart
+                    </button>
+
+                    <button class="wish">
+                        ❤️
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="product-card">
+
+                <img src="l/images/product3.png" alt="">
+
+                <h3>Laptop Bag</h3>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐
+                </div>
+
+                <p class="price">₹1,299</p>
+
+                <div class="buttons">
+                    <button onclick="addToCart()">
+                        Add To Cart
+                    </button>
+
+                    <button class="wish">
+                        ❤️
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="product-card">
+
+                <img src="l/images/product4.png" alt="">
+
+                <h3>Gaming Mouse</h3>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐
+                </div>
+
+                <p class="price">₹999</p>
+
+                <div class="buttons">
+                    <button onclick="addToCart()">
+                        Add To Cart
+                    </button>
+
+                    <button class="wish">
+                        ❤️
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="product-card">
+
+                <img src="l/images/product5.png" alt="">
+
+                <h3>Bluetooth Speaker</h3>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐☆
+                </div>
+
+                <p class="price">₹1,799</p>
+
+                <div class="buttons">
+                    <button onclick="addToCart()">
+                        Add To Cart
+                    </button>
+
+                    <button class="wish">
+                        ❤️
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="product-card">
+
+                <img src="l/images/product6.png" alt="">
+
+                <h3>Mechanical Keyboard</h3>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐
+                </div>
+
+                <p class="price">₹4,499</p>
+
+                <div class="buttons">
+                    <button onclick="addToCart()">
+                        Add To Cart
+                    </button>
+
+                    <button class="wish">
+                        ❤️
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="product-card">
+
+                <img src="l/images/product7.png" alt="">
+
+                <h3>Laptop</h3>
+
+                <div class="rating">
+                    ⭐⭐⭐☆☆
+                </div>
+
+                <p class="price">₹2,499</p>
+
+                <div class="buttons">
+                    <button onclick="addToCart()">
+                        Add To Cart
+                    </button>
+
+                    <button class="wish">
+                        ❤️
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="product-card">
+
+                <img src="l/images/product8.png" alt="">
+
+                <h3>Men's suit</h3>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐☆
+                </div>
+
+                <p class="price">₹2,499</p>
+
+                <div class="buttons">
+                    <button onclick="addToCart()">
+                        Add To Cart
+                    </button>
+
+                    <button class="wish">
+                        ❤️
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Deal Of The Day -->
+
+    <section class="deal">
+
+        <h2>⚡ Deal Of The Day</h2>
+
+        <h1 id="timer">
+            00 : 00 : 00
+        </h1>
+
+    </section>
+
+    <!-- Newsletter -->
+
+    <section class="newsletter">
+
+        <h2>Subscribe For Offers</h2>
+
+        <p>
+            Get updates on new products and discounts.
+        </p>
+
+        <input type="email"
+        placeholder="Enter your email">
+
+        <button>
+            Subscribe
+        </button>
+
+    </section>
+
+    <!-- Cart Sidebar -->
+
+    <div id="cart-sidebar">
+
+        <span class="close-btn"
+        onclick="closeCart()">
+        ✖
+        </span>
+
+        <h2>Your Cart</h2>
+
+        <div id="cart-items">
+
+            <p>No items added yet.</p>
+
+        </div>
+
+    </div>
+
+    <!-- Back To Top -->
+
+    <button id="topBtn"
+    onclick="topFunction()">
+    ↑
+    </button>
+
+    <!-- Footer -->
+
+    <footer>
+
+        <h3>Shop Clone Pro</h3>
+
+        <p>
+            Built using HTML, CSS and JavaScript
+        </p>
+
+        <div class="socials">
+            <i class="fab fa-facebook"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-youtube"></i>
+        </div>
+
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nothing Phone 2 — Smartphone Store</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent: #00f5c4;
+  --accent2: #7b61ff;
+  --bg: #080c14;
+  --card-bg: rgba(255,255,255,0.04);
+  --border: rgba(255,255,255,0.08);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: white; font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
+
+/* NAV */
+nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 48px; border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 100; background: rgba(8,12,20,0.85);
+  backdrop-filter: blur(16px);
+}
+.nav-logo { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 800;
+  background: linear-gradient(135deg, #fff, var(--accent)); -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; background-clip: text; text-decoration: none; }
+.nav-back { display: inline-flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.6);
+  text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
+.nav-back:hover { color: var(--accent); }
+
+/* HERO */
+.hero {
+  display: grid; grid-template-columns: 1fr 1fr;
+  min-height: 80vh; position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 70% 80% at 30% 50%, rgba(0,245,196,0.18) 0%, transparent 65%);
+  pointer-events: none; z-index: 0;
+}
+.hero-img-wrap {
+  position: relative; overflow: hidden; min-height: 500px;
+}
+.hero-img-wrap img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: 0.6s; display: block;
+}
+.hero-img-wrap img:hover { transform: scale(1.03); }
+.hero-img-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, var(--bg) 0%, transparent 30%);
+}
+.hero-content {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 60px 64px 60px 56px; position: relative; z-index: 1;
+}
+.hero-badge {
+  display: inline-block; font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent);
+  border: 1px solid rgba(0,245,196,0.4); padding: 6px 16px; border-radius: 100px;
+  margin-bottom: 24px; width: fit-content;
+}
+.hero-content h1 {
+  font-family: 'Syne', sans-serif; font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 800; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 16px;
+}
+.hero-tagline {
+  font-size: 1.05rem; color: rgba(255,255,255,0.5); margin-bottom: 32px; line-height: 1.6;
+}
+.hero-price {
+  font-family: 'Syne', sans-serif; font-size: 2.5rem; font-weight: 800;
+  color: var(--accent); margin-bottom: 36px; letter-spacing: -0.02em;
+}
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 15px 32px; border-radius: 12px; border: none; cursor: pointer;
+  background: var(--accent); color: #080c14;
+  font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 0.95rem;
+  transition: 0.3s; text-decoration: none; letter-spacing: 0.01em;
+}
+.btn-primary:hover { opacity: 0.85; transform: translateY(-2px); }
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 15px 28px; border-radius: 12px; cursor: pointer;
+  border: 1px solid var(--border); color: rgba(255,255,255,0.7);
+  background: transparent; font-family: 'DM Sans', sans-serif;
+  font-weight: 500; font-size: 0.95rem; transition: 0.3s; text-decoration: none;
+}
+.btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+/* DESCRIPTION */
+.desc-section {
+  padding: 80px 48px; max-width: 900px; margin: 0 auto; text-align: center;
+}
+.desc-section h2 {
+  font-family: 'Syne', sans-serif; font-size: 1.8rem; font-weight: 800;
+  margin-bottom: 20px; letter-spacing: -0.01em;
+}
+.desc-section p {
+  font-size: 1.05rem; color: rgba(255,255,255,0.55); line-height: 1.85;
+}
+
+/* SPECS */
+.specs-section {
+  padding: 0 48px 80px; max-width: 1100px; margin: 0 auto;
+}
+.specs-section h2 {
+  font-family: 'Syne', sans-serif; font-size: 1.8rem; font-weight: 800;
+  margin-bottom: 36px; letter-spacing: -0.01em; text-align: center;
+}
+.specs-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+.spec-card {
+  background: var(--card-bg); border: 1px solid var(--border);
+  border-radius: 16px; padding: 22px 24px;
+  transition: 0.3s;
+}
+.spec-card:hover { border-color: rgba(0,245,196,0.4); transform: translateY(-2px); }
+.spec-label {
+  font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--accent); font-weight: 600; margin-bottom: 8px;
+}
+.spec-value {
+  font-size: 0.95rem; color: rgba(255,255,255,0.85); line-height: 1.5; font-weight: 400;
+}
+
+/* CTA */
+.cta-section {
+  text-align: center; padding: 70px 48px;
+  border-top: 1px solid var(--border);
+}
+.cta-section h2 {
+  font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800;
+  margin-bottom: 12px; letter-spacing: -0.01em;
+}
+.cta-section p { color: rgba(255,255,255,0.4); margin-bottom: 32px; }
+
+/* FOOTER */
+footer {
+  text-align: center; padding: 40px;
+  border-top: 1px solid var(--border);
+}
+footer h3 {
+  font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 800;
+  background: linear-gradient(135deg, #fff, var(--accent));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text; margin-bottom: 6px;
+}
+footer p { color: rgba(255,255,255,0.3); font-size: 0.85rem; }
+
+@media (max-width: 768px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-img-wrap { min-height: 300px; order: -1; }
+  .hero-content { padding: 40px 24px; }
+  nav { padding: 16px 24px; }
+  .specs-section, .desc-section, .cta-section { padding-left: 24px; padding-right: 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="gaming.html" class="nav-logo">📱 Smartphone Store</a>
+  <a href="gaming.html" class="nav-back"><i class="fa-solid fa-arrow-left"></i> Back to All Phones</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-img-wrap">
+    <img src="images/mobile6.png" alt="iQOO 12">
+    <div class="hero-img-overlay"></div>
+  </div>
+  <div class="hero-content">
+    <span class="hero-badge">Trending</span>
+    <h1>iQOO 12</h1>
+    <p class="hero-tagline">See the difference. Feel the difference.</p>
+    <p class="hero-price">₹54,999</p>
+    <div class="hero-actions">
+      <button class="btn-primary"><i class="fa-solid fa-cart-plus"></i> Add To Cart</button>
+      <a href="gaming.html" class="btn-secondary"><i class="fa-solid fa-mobile-screen-button"></i> More Phones</a>
+    </div>
+  </div>
+</section>
+
+<!-- DESCRIPTION -->
+<section class="desc-section">
+  <h2>About this phone</h2>
+  <p>iQOO 12 is the most original smartphone design in years. The iconic transparent back reveals a unique Glyph Interface — a grid of 33 individually controllable LED segments that light up for notifications, calls, charging progress, and even sync with music. Under the glass, a Snapdragon 8+ Gen 1 delivers flagship performance. Nothing OS offers a clean, near-stock Android experience with thoughtful customisation. Bold, transparent, and refreshingly different — the iQOO 12 is for those who dare to stand out.</p>
+</section>
+
+<!-- SPECS -->
+<section class="specs-section">
+  <h2>Key Specifications</h2>
+  <div class="specs-grid">
+    <div class="spec-card"><div class="spec-label">Chip</div><div class="spec-value">Snapdragon 8+ Gen 1 · 8GB / 12GB RAM</div></div>
+    <div class="spec-card"><div class="spec-label">Display</div><div class="spec-value">6.7" LTPO OLED · 120Hz · 2412×1080</div></div>
+    <div class="spec-card"><div class="spec-label">Camera</div><div class="spec-value">50MP Sony IMX890 Main + 50MP Ultra-Wide</div></div>
+    <div class="spec-card"><div class="spec-label">Battery</div><div class="spec-value">4,700 mAh · 45W wired · 15W wireless</div></div>
+    <div class="spec-card"><div class="spec-label">Glyph Interface</div><div class="spec-value">33 LED zones, 11 Glyph zones</div></div>
+    <div class="spec-card"><div class="spec-label">Storage</div><div class="spec-value">128GB / 256GB / 512GB</div></div>
+    <div class="spec-card"><div class="spec-label">Build</div><div class="spec-value">Transparent back · Recycled aluminium</div></div>
+    <div class="spec-card"><div class="spec-label">OS</div><div class="spec-value">Android 14 · Nothing OS 2.5 · 3 yrs updates</div></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Ready to upgrade?</h2>
+  <p>Free delivery across India · 1-year warranty · Easy returns</p>
+  <button class="btn-primary" style="font-size:1rem; padding:16px 40px;">
+    <i class="fa-solid fa-cart-plus"></i> &nbsp;Buy Now — ₹44,999
+  </button>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <h3>Smartphone Store</h3>
+  <p>Your Next Device Awaits</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gaming Store</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+/* ==========================
+   GLOBAL PAGE STYLE
+========================== */
+
+body{
+    background:#0f172a;
+    color:white;
+}
+
+/* ==========================
+   HERO HEADER
+========================== */
+
+.gaming-header{
+    text-align:center;
+    padding:80px 20px;
+
+    background:linear-gradient(
+    135deg,
+    #7c3aed,
+    #ec4899
+    );
+}
+
+.gaming-header h1{
+    font-size:4rem;
+    margin-bottom:15px;
+}
+
+.gaming-header p{
+    font-size:1.2rem;
+}
+
+.back-btn{
+    display:inline-block;
+
+    margin-top:20px;
+
+    padding:12px 25px;
+
+    background:#f59e0b;
+
+    border-radius:10px;
+
+    color:white;
+
+    text-decoration:none;
+}
+
+/* ==========================
+   PRODUCT GRID
+========================== */
+
+.products{
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
+    gap:30px;
+
+    padding:60px;
+}
+
+/* ==========================
+   PRODUCT CARD
+========================== */
+
+.product{
+    background:rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(10px);
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    transition:0.4s;
+}
+
+.product:hover{
+    transform:translateY(-10px) scale(1.02);
+}
+
+.product img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+}
+
+.product-info{
+    padding:20px;
+}
+
+.product-info h3{
+    margin-bottom:10px;
+}
+
+.price{
+    color:#22c55e;
+    font-size:1.3rem;
+    font-weight:bold;
+}
+
+.buy-btn{
+    margin-top:15px;
+
+    border:none;
+
+    background:#f59e0b;
+
+    padding:12px 20px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+}
+
+/* ==========================
+   FOOTER
+========================== */
+
+footer{
+    text-align:center;
+
+    padding:40px;
+
+    background:#111827;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<section class="gaming-header">
+
+    <h1>Gaming Zone</h1>
+
+    <p>
+        Explore gaming laptops, consoles, accessories and gear.
+    </p>
+
+    <a href="index.html" class="back-btn">
+        ← Back To Home
+    </a>
+
+</section>
+
+<!-- PRODUCTS -->
+<section class="products">
+
+    <div class="product">
+
+        <img src="images/gaming1.png">
+
+        <div class="product-info">
+
+            <h3>PlayStation 5</h3>
+
+            <p class="price">₹54,999</p>
+
+            <button class="buy-btn">Add To Cart</button>
+            <button class="buy-btn">
+                 <a href="gaming1.html" >
+        Learn more
+    </a>
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="product">
+
+        <img src="images/gaming2.png">
+
+        <div class="product-info">
+
+            <h3>Xbox Series X</h3>
+
+            <p class="price">₹52,999</p>
+
+            <button class="buy-btn">Add To Cart</button>
+            <button class="buy-btn">
+                 <a href="gaming2.html" >
+        Learn more
+    </a>
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="product">
+
+        <img src="images/gaming3.png">
+
+        <div class="product-info">
+
+            <h3>Gaming Laptop RTX 4060</h3>
+
+            <p class="price">₹1,15,999</p>
+
+            <button class="buy-btn">Add To Cart</button>
+            <button class="buy-btn">
+                 <a href="gaming3.html" >
+        Learn more
+    </a>
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="product">
+
+        <img src="images/gaming4.png">
+
+        <div class="product-info">
+
+            <h3>RGB Gaming Keyboard</h3>
+
+            <p class="price">₹3,499</p>
+
+            <button class="buy-btn">Add To Cart</button>
+            <button class="buy-btn">
+                 <a href="gaming4.html" >
+        Learn more
+    </a>
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="product">
+
+        <img src="images/gaming5.png">
+
+        <div class="product-info">
+
+            <h3>Gaming Mouse Pro</h3>
+
+            <p class="price">₹1,999</p>
+
+            <button class="buy-btn">Add To Cart</button>
+            <button class="buy-btn">
+                 <a href="gaming5.html" >
+        Learn more
+    </a>
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="product">
+
+        <img src="images/gaming6.png">
+
+        <div class="product-info">
+
+            <h3>Gaming Headset 7.1</h3>
+
+            <p class="price">₹2,999</p>
+
+            <button class="buy-btn">Add To Cart</button>
+            <button class="buy-btn">
+                 <a href="gaming6.html" >
+        Learn more
+    </a>
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+
+    <h3>Gaming Store</h3>
+
+    <p>Level Up Your Gaming Experience</p>
+
+</footer>
+
+</body>
+</html>

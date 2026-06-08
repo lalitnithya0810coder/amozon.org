@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mobiles Store</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+/* ==========================
+   PAGE BACKGROUND
+========================== */
+
+body{
+    background:#0f172a;
+    color:white;
+}
+
+/* ==========================
+   HEADER SECTION
+========================== */
+
+.mobiles-header{
+    text-align:center;
+    padding:80px 20px;
+
+    background:linear-gradient(
+    135deg,
+    #0ea5e9,
+    #2563eb
+    );
+}
+
+.mobiles-header h1{
+    font-size:4rem;
+    margin-bottom:15px;
+}
+
+.mobiles-header p{
+    font-size:1.2rem;
+}
+
+.back-btn{
+    display:inline-block;
+    margin-top:20px;
+
+    padding:12px 25px;
+
+    background:#f59e0b;
+
+    border-radius:10px;
+
+    text-decoration:none;
+
+    color:white;
+}
+
+/* ==========================
+   PRODUCT GRID
+========================== */
+
+.products{
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
+    gap:30px;
+
+    padding:60px;
+}
+
+/* ==========================
+   PRODUCT CARD
+========================== */
+
+.product{
+    background:rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(10px);
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    transition:0.4s;
+}
+
+.product:hover{
+    transform:translateY(-10px);
+}
+
+.product img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+}
+
+.product-info{
+    padding:20px;
+}
+
+.product-info h3{
+    margin-bottom:10px;
+}
+
+.price{
+    color:#22c55e;
+    font-size:1.3rem;
+    font-weight:bold;
+}
+
+.buy-btn{
+    margin-top:15px;
+
+    border:none;
+
+    background:#f59e0b;
+
+    padding:12px 20px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+}
+
+/* ==========================
+   FOOTER
+========================== */
+
+footer{
+    text-align:center;
+
+    padding:40px;
+
+    background:#111827;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<section class="mobiles-header">
+
+    <h1>Smart Mobiles</h1>
+
+    <p>
+        Explore latest smartphones from top brands with best deals.
+    </p>
+
+    <a href="index.html" class="back-btn">
+        ← Back To Home
+    </a>
+
+</section>
+
+<!-- PRODUCTS -->
+<section class="products">
+
+    <div class="product">
+
+        <img src="images/mobile1.png">
+
+        <div class="product-info">
+
+            <h3>iPhone 15 Pro</h3>
+
+            <p class="price">₹1,29,999</p>
+
+            <button class="buy-btn">
+                Add To Cart
+            </button>
+
+            <button class="buy-btn">
+                 <a href="product1.html" >
+        Learn more
+    </a>
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="product">
+
+        <img src="images/mobile2.png">
+
+        <div class="product-info">
+
+            <h3>Samsung Galaxy S24</h3>
+
+            <p class="price">₹89,999</p>
+
+            <button class="buy-btn">
+                Add To Cart
+            </button>
+            <button class="buy-btn">
+                 <a href="product2.html" >
+        Learn more
+    </a>
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="product">
+
+        <img src="images/mobile3.png">
+
+        <div class="product-info">
+
+            <h3>OnePlus 12</h3>
+
+            <p class="price">₹64,999</p>
+
+            <button class="buy-btn">
+                Add To Cart
+            </button>
+            <button class="buy-btn">
+                 <a href="product4.html" >
+        Learn more
+    </a>
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="product">
+
+        <img src="images/mobile4.png">
+
+        <div class="product-info">
+
+            <h3>Google Pixel 8</h3>
+
+            <p class="price">₹75,999</p>
+
+            <button class="buy-btn">
+                Add To Cart
+            </button>
+
+            <button class="buy-btn">
+                 <a href="product3.html" >
+        Learn more
+    </a>
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="product">
+
+        <img src="images/mobile5.png">
+
+        <div class="product-info">
+
+            <h3>Realme GT Neo</h3>
+
+            <p class="price">₹29,999</p>
+
+            <button class="buy-btn">
+                Add To Cart
+            </button>
+            <button class="buy-btn">
+                 <a href="product5.html" >
+        Learn more
+    </a>
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="product">
+
+        <img src="images/mobile6.png">
+
+        <div class="product-info">
+
+            <h3>iQOO 12</h3>
+
+            <p class="price">₹52,999</p>
+
+            <button class="buy-btn">
+                Add To Cart
+            </button>
+
+            <button class="buy-btn">
+                 <a href="product6.html" >
+        Learn more
+    </a>
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+
+    <h3>Mobiles Store</h3>
+
+    <p>Latest Smartphones & Best Deals</p>
+
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Electronics Store</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+body{
+    background:#0f172a;
+    color:white;
+}
+
+.electronics-header{
+    text-align:center;
+    padding:80px 20px;
+    background:linear-gradient(135deg,#2563eb,#1e40af);
+}
+
+.electronics-header h1{
+    font-size:4rem;
+    margin-bottom:15px;
+}
+
+.electronics-header p{
+    font-size:1.2rem;
+}
+
+.back-btn{
+    display:inline-block;
+    margin-top:20px;
+    text-decoration:none;
+    color:white;
+    background:#f59e0b;
+    padding:12px 25px;
+    border-radius:10px;
+}
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+    padding:60px;
+}
+
+.product{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+    border-radius:20px;
+    overflow:hidden;
+    transition:0.4s;
+}
+
+.product:hover{
+    transform:translateY(-10px);
+}
+
+.product img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+}
+
+.product-info{
+    padding:20px;
+}
+
+.product-info h3{
+    margin-bottom:10px;
+}
+
+.price{
+    color:#22c55e;
+    font-size:1.3rem;
+    font-weight:bold;
+}
+
+.buy-btn{
+    margin-top:15px;
+    border:none;
+    background:#f59e0b;
+    padding:12px 20px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+footer{
+    text-align:center;
+    padding:40px;
+    background:#111827;
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="electronics-header">
+
+    <h1>Electronics Store</h1>
+
+    <p>
+        Discover the latest gadgets, laptops, smartphones and accessories.
+    </p>
+
+    <a href="index.html" class="back-btn">
+        ← Back To Home
+    </a>
+
+</section>
+
+<section class="products">
+
+    <div class="product">
+
+        <img src="images/electronics1.png">
+
+        <div class="product-info">
+
+            <h3>Gaming Laptop</h3>
+
+            <p class="price">₹89,999</p>
+
+            <button class="buy-btn">
+                Add To Cart
+            </button>
+
+            <button class="buy-btn">
+                 <a href="gaming-laptop.html" >
+        Learn more
+    </a>
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="product">
+
+        <img src="images/electronics2.png">
+
+        <div class="product-info">
+
+            <h3>Smartphone</h3>
+
+            <p class="price">₹29,999</p>
+
+            <button class="buy-btn">
+                Add To Cart
+            </button>
+
+            <button class="buy-btn">
+                 <a href="smartphone.html" >
+        Learn more
+    </a>
+
+        </div>
+
+    </div>
+
+    <div class="product">
+
+        <img src="images/electronics3.png">
+
+        <div class="product-info">
+
+            <h3>Wireless Headphones</h3>
+
+            <p class="price">₹2,499</p>
+
+            <button class="buy-btn">
+                Add To Cart
+            </button>
+
+            <button class="buy-btn">
+                 <a href="wireless-headphones.html" >
+        Learn more
+    </a>
+
+        </div>
+
+    </div>
+
+    <div class="product">
+
+        <img src="images/electronics4.png">
+
+        <div class="product-info">
+
+            <h3>Smart Watch</h3>
+
+            <p class="price">₹3,999</p>
+
+            <button class="buy-btn">
+                Add To Cart
+            </button>
+
+            <button class="buy-btn">
+                 <a href="smart-watch.html" >
+        Learn more
+    </a>
+
+        </div>
+
+    </div>
+
+    <div class="product">
+
+        <img src="images/electronics5.png">
+
+        <div class="product-info">
+
+            <h3>Bluetooth Speaker</h3>
+
+            <p class="price">₹1,799</p>
+
+            <button class="buy-btn">
+                Add To Cart
+            </button>
+
+            <button class="buy-btn">
+                 <a href="bluetooth-speaker.html" >
+        Learn more
+    </a>
+
+        </div>
+
+    </div>
+
+    <div class="product">
+
+        <img src="images/electronics6.png">
+
+        <div class="product-info">
+
+            <h3>Mechanical Keyboard</h3>
+
+            <p class="price">₹4,999</p>
+
+            <button class="buy-btn">
+                Add To Cart
+            </button>
+
+            <button class="buy-btn">
+                 <a href="mechanical-keyboard.html" >
+        Learn more
+    </a>
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <h3>Electronics Store</h3>
+
+    <p>Premium Gadgets & Accessories</p>
+
+</footer>
+
+</body>
+</html>

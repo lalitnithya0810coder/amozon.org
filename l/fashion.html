@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fashion Store</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+/* ==========================
+   PAGE BACKGROUND
+========================== */
+
+body{
+    background:#0f172a;
+    color:white;
+}
+
+/* ==========================
+   HEADER SECTION
+========================== */
+
+.fashion-header{
+    text-align:center;
+    padding:80px 20px;
+
+    background:linear-gradient(
+    135deg,
+    #f43f5e,
+    #ec4899
+    );
+}
+
+.fashion-header h1{
+    font-size:4rem;
+    margin-bottom:15px;
+}
+
+.fashion-header p{
+    font-size:1.2rem;
+}
+
+.back-btn{
+    display:inline-block;
+
+    margin-top:20px;
+
+    padding:12px 25px;
+
+    background:#f59e0b;
+
+    border-radius:10px;
+
+    color:white;
+
+    text-decoration:none;
+}
+
+/* ==========================
+   PRODUCT GRID
+========================== */
+
+.products{
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
+    gap:30px;
+
+    padding:60px;
+}
+
+/* ==========================
+   PRODUCT CARD
+========================== */
+
+.product{
+    background:rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(10px);
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    transition:0.4s;
+}
+
+.product:hover{
+    transform:translateY(-10px);
+}
+
+.product img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+}
+
+.product-info{
+    padding:20px;
+}
+
+.product-info h3{
+    margin-bottom:10px;
+}
+
+.price{
+    color:#22c55e;
+    font-size:1.3rem;
+    font-weight:bold;
+}
+
+.buy-btn{
+    margin-top:15px;
+
+    border:none;
+
+    background:#f59e0b;
+
+    padding:12px 20px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+}
+
+/* ==========================
+   FOOTER
+========================== */
+
+footer{
+    text-align:center;
+
+    padding:40px;
+
+    background:#111827;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<section class="fashion-header">
+
+    <h1>Fashion Store</h1>
+
+    <p>
+        Explore trendy clothing, shoes, accessories and styles.
+    </p>
+
+    <a href="index.html" class="back-btn">
+        ← Back To Home
+    </a>
+
+</section>
+
+<!-- PRODUCTS -->
+<section class="products">
+
+    <div class="product">
+
+        <img src="images/fashion1.png">
+
+        <div class="product-info">
+
+            <h3>Men's Jacket</h3>
+
+            <p class="price">₹2,999</p>
+
+            <button class="buy-btn">Add To Cart</button>
+            <button class="buy-btn">
+                 <a href="fashion1.html" >
+        Learn more
+    </a>
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="product">
+
+        <img src="images/fashion2.png">
+
+        <div class="product-info">
+
+            <h3>Women's Dress</h3>
+
+            <p class="price">₹1,799</p>
+
+            <button class="buy-btn">Add To Cart</button>
+            <button class="buy-btn">
+                 <a href="fashion2.html" >
+        Learn more
+    </a>
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="product">
+
+        <img src="images/fashion3.png">
+
+        <div class="product-info">
+
+            <h3>Stylish Sneakers</h3>
+
+            <p class="price">₹2,499</p>
+
+            <button class="buy-btn">Add To Cart</button>
+            <button class="buy-btn">
+                 <a href="fashion3.html" >
+        Learn more
+    </a>
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="product">
+
+        <img src="images/fashion4.png">
+
+        <div class="product-info">
+
+            <h3>Denim Jeans</h3>
+
+            <p class="price">₹1,999</p>
+
+            <button class="buy-btn">Add To Cart</button>
+            <button class="buy-btn">
+                 <a href="fashion4.html" >
+        Learn more
+    </a>
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="product">
+
+        <img src="images/fashion5.png">
+
+        <div class="product-info">
+
+            <h3>Hoodie</h3>
+
+            <p class="price">₹1,499</p>
+
+            <button class="buy-btn">Add To Cart</button>
+            <button class="buy-btn">
+                 <a href="fashion5.html" >
+        Learn more
+    </a>
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="product">
+
+        <img src="images/fashion6.png">
+
+        <div class="product-info">
+
+            <h3>Luxury Watch</h3>
+
+            <p class="price">₹5,999</p>
+
+            <button class="buy-btn">Add To Cart</button>
+            <button class="buy-btn">
+                 <a href="fashion6.html" >
+        Learn more
+    </a>
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+
+    <h3>Fashion Store</h3>
+
+    <p>Trendy Styles & Modern Wear</p>
+
+</footer>
+
+</body>
+</html>

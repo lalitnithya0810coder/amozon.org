@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gaming Laptop – Electronics Store</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@300;400;500&display=swap');
+
+  :root {
+    --accent: #3b82f6;
+    --accent2: #06b6d4;
+    --gold: #f59e0b;
+    --bg: #0a0f1e;
+    --card: rgba(255,255,255,0.05);
+    --green: #22c55e;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: #e2e8f0;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Animated grid background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(59,130,246,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59,130,246,0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 60px;
+    background: rgba(10,15,30,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(59,130,246,0.2);
+  }
+
+  nav .logo {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    letter-spacing: 2px;
+  }
+
+  nav .logo span { color: var(--accent); }
+
+  .back-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+  }
+  .back-link:hover { color: var(--accent); }
+
+  .hero {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    padding: 80px 60px;
+    max-width: 1300px;
+    margin: 0 auto;
+    align-items: center;
+    animation: fadeUp 0.7s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(30px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+
+  .image-frame {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 60px rgba(59,130,246,0.25), 0 0 120px rgba(59,130,246,0.1);
+  }
+  .image-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent 60%, rgba(59,130,246,0.15));
+    pointer-events: none;
+  }
+
+  .image-frame img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+  }
+  .image-frame:hover img { transform: scale(1.04); }
+
+  .badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: white;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 6px 14px;
+    border-radius: 30px;
+    z-index: 2;
+  }
+
+  .info { animation: fadeUp 0.7s 0.15s ease both; }
+
+  .category-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .info h1 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: white;
+    margin-bottom: 16px;
+  }
+
+  .rating { display: flex; align-items: center; gap: 10px; margin-bottom: 24px; }
+  .stars { color: var(--gold); font-size: 1rem; }
+  .rating-text { color: #64748b; font-size: 0.85rem; }
+
+  .price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+  .price { font-family: 'Rajdhani', sans-serif; font-size: 2.6rem; color: var(--green); font-weight: 700; }
+  .old-price { color: #64748b; font-size: 1.1rem; text-decoration: line-through; }
+  .discount { background: rgba(34,197,94,0.15); color: var(--green); padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 600; }
+
+  .description {
+    color: #94a3b8;
+    line-height: 1.8;
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+  }
+
+  .specs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+  .spec-item {
+    background: var(--card);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .spec-item i { color: var(--accent); font-size: 1rem; width: 20px; text-align: center; }
+  .spec-label { font-size: 0.7rem; color: #64748b; text-transform: uppercase; letter-spacing: 1px; }
+  .spec-value { font-size: 0.9rem; font-weight: 500; color: white; }
+
+  .btn-row { display: flex; gap: 14px; }
+
+  .btn-cart {
+    flex: 1;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: white;
+    border: none;
+    padding: 16px 28px;
+    border-radius: 12px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 0 30px rgba(59,130,246,0.3);
+  }
+  .btn-cart:hover { transform: translateY(-3px); box-shadow: 0 0 50px rgba(59,130,246,0.5); }
+
+  .btn-wish {
+    background: var(--card);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 16px 20px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .btn-wish:hover { border-color: #ef4444; color: #ef4444; }
+
+  /* Features section */
+  .features-section {
+    position: relative;
+    z-index: 1;
+    max-width: 1300px;
+    margin: 0 auto 80px;
+    padding: 0 60px;
+    animation: fadeUp 0.7s 0.3s ease both;
+  }
+
+  .section-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 30px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .feature-card {
+    background: var(--card);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 28px;
+    transition: all 0.4s;
+    position: relative;
+    overflow: hidden;
+  }
+  .feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .feature-card:hover { transform: translateY(-5px); border-color: rgba(59,130,246,0.3); }
+  .feature-card:hover::before { opacity: 1; }
+
+  .feature-icon {
+    width: 48px; height: 48px;
+    background: rgba(59,130,246,0.15);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 16px;
+    font-size: 1.3rem;
+    color: var(--accent);
+  }
+  .feature-card h4 { font-family: 'Rajdhani', sans-serif; font-size: 1.1rem; font-weight: 700; color: white; margin-bottom: 8px; }
+  .feature-card p { font-size: 0.85rem; color: #64748b; line-height: 1.6; }
+
+  footer {
+    position: relative; z-index: 1;
+    text-align: center;
+    padding: 40px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    color: #475569;
+    font-size: 0.85rem;
+  }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; padding: 40px 20px; }
+    nav { padding: 16px 20px; }
+    .features-section { padding: 0 20px; }
+    .features-grid { grid-template-columns: 1fr; }
+    .specs-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="electronics.html" class="logo">ELECTRO<span>HUB</span></a>
+  <a href="electronics.html" class="back-link"><i class="fa fa-arrow-left"></i> Back to Store</a>
+</nav>
+
+<section class="hero">
+  <div class="image-frame">
+    <span class="badge">BESTSELLER</span>
+    <img src="images/electronics1.jpg" alt="Gaming Laptop" onerror="this.src='https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=800'">
+  </div>
+  <div class="info">
+    <span class="category-tag"><i class="fa fa-microchip"></i> &nbsp;Laptops & Computers</span>
+    <h1>Gaming Laptop Pro X</h1>
+    <div class="rating">
+      <div class="stars">
+        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-alt"></i>
+      </div>
+      <span class="rating-text">4.5 / 5 &nbsp;·&nbsp; 1,248 reviews</span>
+    </div>
+    <div class="price-row">
+      <span class="price">₹89,999</span>
+      <span class="old-price">₹1,09,999</span>
+      <span class="discount">18% OFF</span>
+    </div>
+    <p class="description">
+      Dominate every game with the Gaming Laptop Pro X — engineered for the relentless. Powered by the latest generation processor and a dedicated GPU, this beast handles AAA titles, video editing, and 3D rendering without breaking a sweat. The 15.6" 165Hz IPS display ensures buttery-smooth visuals, while the advanced cooling system keeps performance peaking under pressure.
+    </p>
+    <div class="specs-grid">
+      <div class="spec-item">
+        <i class="fa fa-microchip"></i>
+        <div><div class="spec-label">Processor</div><div class="spec-value">Intel Core i9-13900H</div></div>
+      </div>
+      <div class="spec-item">
+        <i class="fa fa-memory"></i>
+        <div><div class="spec-label">RAM</div><div class="spec-value">32GB DDR5</div></div>
+      </div>
+      <div class="spec-item">
+        <i class="fa fa-tv"></i>
+        <div><div class="spec-label">Display</div><div class="spec-value">15.6" 165Hz IPS</div></div>
+      </div>
+      <div class="spec-item">
+        <i class="fa fa-hard-drive"></i>
+        <div><div class="spec-label">Storage</div><div class="spec-value">1TB NVMe SSD</div></div>
+      </div>
+      <div class="spec-item">
+        <i class="fa fa-gamepad"></i>
+        <div><div class="spec-label">GPU</div><div class="spec-value">NVIDIA RTX 4070</div></div>
+      </div>
+      <div class="spec-item">
+        <i class="fa fa-battery-full"></i>
+        <div><div class="spec-label">Battery</div><div class="spec-value">86Wh, ~6 hrs</div></div>
+      </div>
+    </div>
+    <div class="btn-row">
+      <button class="btn-cart"><i class="fa fa-cart-shopping"></i> &nbsp;Add To Cart</button>
+      <button class="btn-wish"><i class="fa fa-heart"></i></button>
+    </div>
+  </div>
+</section>
+
+<section class="features-section">
+  <h2 class="section-title">Why Choose This Laptop?</h2>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon"><i class="fa fa-bolt"></i></div>
+      <h4>Blazing Fast Performance</h4>
+      <p>The RTX 4070 GPU paired with a 13th-gen Intel Core i9 delivers frame rates that leave the competition in the dust.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon"><i class="fa fa-display"></i></div>
+      <h4>165Hz Smooth Display</h4>
+      <p>A 165Hz refresh rate and 3ms response time makes every scene tear-free, ultra-smooth, and colour-accurate.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon"><i class="fa fa-wind"></i></div>
+      <h4>Tri-Fan Cooling System</h4>
+      <p>Three-fan vapour chamber cooling keeps thermals in check even during marathon gaming or rendering sessions.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 ElectroHub &nbsp;·&nbsp; Premium Gadgets & Accessories
+</footer>
+
+</body>
+</html>

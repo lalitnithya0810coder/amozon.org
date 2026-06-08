@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Alchemist – Books Store</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
+  :root{--ink:#1a1208;--cream:#fdf6ec;--warm:#f5ead6;--accent:#c8760a;--accent2:#e8962a;--muted:#8a7560;--green:#2d6a4f;--card:rgba(255,255,255,0.7);--shadow:rgba(26,18,8,0.12);}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--cream);color:var(--ink);font-family:'Lora',Georgia,serif;min-height:100vh;overflow-x:hidden;}
+  body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 0% 0%,rgba(200,118,10,0.06) 0%,transparent 50%),radial-gradient(ellipse at 100% 100%,rgba(232,150,42,0.05) 0%,transparent 50%);z-index:0;pointer-events:none;}
+  nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 60px;background:rgba(253,246,236,0.92);backdrop-filter:blur(16px);border-bottom:2px solid var(--accent);}
+  .logo{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:900;color:var(--ink);text-decoration:none;letter-spacing:1px;}
+  .logo span{color:var(--accent);font-style:italic;}
+  .back-link{display:flex;align-items:center;gap:8px;color:var(--muted);text-decoration:none;font-family:'Lora',serif;font-size:0.88rem;transition:color 0.3s;}
+  .back-link:hover{color:var(--accent);}
+  .hero{position:relative;z-index:1;display:grid;grid-template-columns:380px 1fr;gap:70px;padding:80px 60px;max-width:1200px;margin:0 auto;align-items:start;animation:fadeUp 0.6s ease both;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+  .book-cover-wrap{position:relative;animation:fadeUp 0.6s 0.1s ease both;}
+  .book-cover-wrap img{width:100%;height:500px;object-fit:cover;border-radius:4px 16px 16px 4px;box-shadow:-8px 8px 0 var(--accent),8px 24px 60px var(--shadow);display:block;}
+  .genre-badge{position:absolute;top:20px;right:-12px;background:var(--accent);color:white;font-family:'Playfair Display',serif;font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:6px 16px;border-radius:4px;box-shadow:2px 4px 12px var(--shadow);}
+  .info{animation:fadeUp 0.6s 0.2s ease both;}
+  .breadcrumb{display:flex;align-items:center;gap:8px;font-size:0.78rem;color:var(--muted);margin-bottom:20px;}
+  .breadcrumb a{color:var(--accent);text-decoration:none;}
+  .category-tag{display:inline-block;font-family:'Lora',serif;font-size:0.8rem;font-style:italic;color:var(--muted);margin-bottom:12px;letter-spacing:1px;}
+  .info h1{font-family:'Playfair Display',serif;font-size:3rem;font-weight:900;line-height:1.15;color:var(--ink);margin-bottom:8px;}
+  .author-line{font-family:'Lora',serif;font-size:1rem;font-style:italic;color:var(--muted);margin-bottom:20px;}
+  .author-line span{color:var(--accent);font-style:normal;font-weight:500;}
+  .rating{display:flex;align-items:center;gap:10px;margin-bottom:24px;}
+  .stars{color:var(--accent2);font-size:0.95rem;}
+  .rating-text{color:var(--muted);font-size:0.85rem;font-style:italic;}
+  .price-row{display:flex;align-items:baseline;gap:16px;margin-bottom:28px;padding:20px 24px;background:var(--warm);border-left:4px solid var(--accent);border-radius:0 12px 12px 0;}
+  .price{font-family:'Playfair Display',serif;font-size:2.4rem;color:var(--green);font-weight:700;}
+  .old-price{color:var(--muted);font-size:1rem;text-decoration:line-through;}
+  .discount{background:var(--green);color:white;padding:3px 10px;border-radius:4px;font-size:0.78rem;font-weight:600;font-family:sans-serif;}
+  .description{color:#3d2e1a;line-height:1.9;font-size:0.97rem;margin-bottom:28px;border-top:1px solid rgba(200,118,10,0.2);padding-top:24px;}
+  .meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:32px;}
+  .meta-item{background:var(--card);border:1px solid rgba(200,118,10,0.15);border-radius:10px;padding:14px 18px;display:flex;align-items:center;gap:12px;box-shadow:0 2px 8px var(--shadow);}
+  .meta-item i{color:var(--accent);width:18px;text-align:center;}
+  .meta-label{font-size:0.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;font-family:sans-serif;}
+  .meta-value{font-size:0.9rem;font-weight:500;color:var(--ink);font-family:'Lora',serif;}
+  .btn-row{display:flex;gap:12px;}
+  .btn-cart{flex:1;background:var(--accent);color:white;border:none;padding:16px 28px;border-radius:10px;font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;cursor:pointer;transition:all 0.3s;box-shadow:0 4px 20px rgba(200,118,10,0.35);}
+  .btn-cart:hover{background:#a8600a;transform:translateY(-2px);}
+  .btn-wish{background:var(--warm);color:var(--ink);border:2px solid rgba(200,118,10,0.3);padding:16px 20px;border-radius:10px;font-size:1.1rem;cursor:pointer;transition:all 0.3s;}
+  .btn-wish:hover{border-color:#ef4444;color:#ef4444;}
+  .highlights{position:relative;z-index:1;max-width:1200px;margin:0 auto 80px;padding:0 60px;animation:fadeUp 0.6s 0.3s ease both;}
+  .section-title{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:var(--ink);margin-bottom:30px;padding-bottom:14px;border-bottom:2px solid rgba(200,118,10,0.2);position:relative;}
+  .section-title::after{content:'';position:absolute;bottom:-2px;left:0;width:60px;height:2px;background:var(--accent);}
+  .highlights-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .highlight-card{background:var(--card);border:1px solid rgba(200,118,10,0.12);border-radius:16px;padding:30px;box-shadow:0 4px 20px var(--shadow);transition:all 0.4s;position:relative;overflow:hidden;}
+  .highlight-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));transform:scaleX(0);transform-origin:left;transition:transform 0.4s;}
+  .highlight-card:hover{transform:translateY(-6px);box-shadow:0 12px 40px var(--shadow);}
+  .highlight-card:hover::before{transform:scaleX(1);}
+  .highlight-num{font-family:'Playfair Display',serif;font-size:3rem;font-weight:900;color:rgba(200,118,10,0.15);line-height:1;margin-bottom:12px;}
+  .highlight-card h4{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:10px;}
+  .highlight-card p{font-size:0.87rem;color:var(--muted);line-height:1.7;}
+  .quote-block{position:relative;z-index:1;max-width:1200px;margin:0 auto 80px;padding:0 60px;animation:fadeUp 0.6s 0.4s ease both;}
+  .quote-inner{background:linear-gradient(135deg,var(--warm),rgba(245,234,214,0.5));border:1px solid rgba(200,118,10,0.2);border-radius:20px;padding:50px 60px;text-align:center;position:relative;}
+  .quote-inner::before{content:'\201C';font-family:'Playfair Display',serif;font-size:8rem;line-height:0.5;color:rgba(200,118,10,0.15);position:absolute;top:30px;left:40px;}
+  .quote-text{font-family:'Playfair Display',serif;font-size:1.4rem;font-style:italic;color:var(--ink);line-height:1.7;margin-bottom:20px;position:relative;z-index:1;}
+  .quote-author{font-size:0.85rem;color:var(--muted);letter-spacing:2px;text-transform:uppercase;font-family:sans-serif;}
+  footer{position:relative;z-index:1;text-align:center;padding:40px;border-top:2px solid rgba(200,118,10,0.15);color:var(--muted);font-size:0.85rem;font-style:italic;}
+  footer strong{color:var(--ink);font-style:normal;font-family:'Playfair Display',serif;}
+  @media(max-width:900px){.hero{grid-template-columns:1fr;padding:40px 20px;gap:40px;}nav{padding:14px 20px;}.highlights{padding:0 20px;}.highlights-grid{grid-template-columns:1fr;}.meta-grid{grid-template-columns:1fr;}.quote-block{padding:0 20px;}.quote-inner{padding:40px 28px;}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="books.html" class="logo">Book<span>Haven</span></a>
+  <a href="books.html" class="back-link"><i class="fa fa-arrow-left"></i>&nbsp; Back to Store</a>
+</nav>
+<section class="hero">
+  <div class="book-cover-wrap">
+    <span class="genre-badge">Fiction</span>
+    <img src="images/book6.png" alt="The Alchemist" onerror="this.src='https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=600'">
+  </div>
+  <div class="info">
+    <div class="breadcrumb">
+      <a href="books.html">Store</a>
+      <i class="fa fa-chevron-right" style="font-size:0.6rem"></i>
+      <span>Fiction</span>
+      <i class="fa fa-chevron-right" style="font-size:0.6rem"></i>
+      <span>The Alchemist</span>
+    </div>
+    <div class="category-tag">— Philosophical Fiction / Inspirational</div>
+    <h1>The Alchemist</h1>
+    <p class="author-line">by <span>Paulo Coelho</span></p>
+    <div class="rating">
+      <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+      <span class="rating-text">4.9 / 5 &nbsp;·&nbsp; 75,600 reviews</span>
+    </div>
+    <div class="price-row">
+      <span class="price">₹299</span>
+      <span class="old-price">₹399</span>
+      <span class="discount">25% OFF</span>
+    </div>
+    <p class="description">
+      A timeless fable about following your dreams. Santiago, a young Andalusian shepherd, sets out on a journey from Spain to the Egyptian desert in search of a treasure buried near the Pyramids. Along the way he meets a Gypsy woman, a mysterious king, and an Alchemist — all of whom point him toward his "Personal Legend." Coelho's enchanting tale has sold over 150 million copies, been translated into 80 languages, and holds the Guinness World Record as the most translated book by a living author. A profoundly simple yet deeply moving story about listening to your heart and trusting the universe.
+    </p>
+    <div class="meta-grid">
+      <div class="meta-item"><i class="fa fa-book-open"></i><div><div class="meta-label">Pages</div><div class="meta-value">208 pages</div></div></div>
+      <div class="meta-item"><i class="fa fa-calendar"></i><div><div class="meta-label">Published</div><div class="meta-value">1988 (Brazil)</div></div></div>
+      <div class="meta-item"><i class="fa fa-globe"></i><div><div class="meta-label">Language</div><div class="meta-value">English (Trans.)</div></div></div>
+      <div class="meta-item"><i class="fa fa-building-columns"></i><div><div class="meta-label">Publisher</div><div class="meta-value">HarperOne</div></div></div>
+    </div>
+    <div class="btn-row">
+      <button class="btn-cart"><i class="fa fa-cart-shopping"></i> &nbsp;Add To Cart</button>
+      <button class="btn-wish"><i class="fa fa-heart"></i></button>
+    </div>
+  </div>
+</section>
+<section class="highlights">
+  <h2 class="section-title">Themes That Resonate</h2>
+  <div class="highlights-grid">
+    <div class="highlight-card">
+      <div class="highlight-num">✦</div>
+      <h4>The Personal Legend</h4>
+      <p>Coelho introduces the idea that every person has a "Personal Legend" — a unique purpose they are destined to fulfil. The universe conspires to help those who pursue it wholeheartedly.</p>
+    </div>
+    <div class="highlight-card">
+      <div class="highlight-num">✦</div>
+      <h4>The Language of the World</h4>
+      <p>Beyond words and borders lies a universal language understood by all — the language of the heart. Santiago learns to read omens and listen to the Soul of the World.</p>
+    </div>
+    <div class="highlight-card">
+      <div class="highlight-num">✦</div>
+      <h4>Treasure Is Within</h4>
+      <p>The greatest journey is inward. What Santiago discovers at the end of his quest is not what he expected — but everything he needed. A truth as ancient as alchemy itself.</p>
+    </div>
+  </div>
+</section>
+<div class="quote-block">
+  <div class="quote-inner">
+    <p class="quote-text">When you want something, all the universe conspires in helping you to achieve it.</p>
+    <p class="quote-author">— Paulo Coelho, The Alchemist</p>
+  </div>
+</div>
+<footer>&copy; 2025 <strong>BookHaven</strong> &nbsp;·&nbsp; Knowledge, Stories & Inspiration</footer>
+</body>
+</html>

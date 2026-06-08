@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home & Kitchen Store</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+body{
+    background:#0f172a;
+    color:white;
+}
+
+.home-header{
+    text-align:center;
+    padding:80px 20px;
+
+    background:linear-gradient(
+        135deg,
+        #10b981,
+        #059669
+    );
+}
+
+.home-header h1{
+    font-size:4rem;
+    margin-bottom:15px;
+}
+
+.home-header p{
+    font-size:1.2rem;
+}
+
+.back-btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 25px;
+    background:#111827;
+    border-radius:10px;
+    text-decoration:none;
+    color:white;
+}
+
+.products{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+    padding:60px;
+}
+
+.product{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+    border-radius:20px;
+    overflow:hidden;
+    transition:0.4s;
+}
+
+.product:hover{
+    transform:translateY(-10px);
+}
+
+.product img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+}
+
+.product-info{
+    padding:20px;
+}
+
+.product-info h3{
+    margin-bottom:10px;
+}
+
+.price{
+    color:#22c55e;
+    font-size:1.3rem;
+    font-weight:bold;
+}
+
+.buy-btn{
+    margin-top:15px;
+    border:none;
+    background:#f59e0b;
+    padding:12px 20px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+footer{
+    text-align:center;
+    padding:40px;
+    background:#111827;
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="home-header">
+
+    <h1>Home & Kitchen</h1>
+
+    <p>
+        Everything you need to make your home beautiful and comfortable.
+    </p>
+
+    <a href="index.html" class="back-btn">
+        ← Back To Home
+    </a>
+
+</section>
+
+<section class="products">
+
+    <div class="product">
+
+        <img src="images/home1.png">
+
+        <div class="product-info">
+
+            <h3>Luxury Sofa</h3>
+
+            <p class="price">₹24,999</p>
+
+            <button class="buy-btn">
+                Add To Cart
+            </button>
+
+            <button class="buy-btn">
+                 <a href="home1.html">
+        Learn more
+    </a>
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="product">
+
+        <img src="images/home2.png">
+
+        <div class="product-info">
+
+            <h3>Dining Table Set</h3>
+
+            <p class="price">₹18,999</p>
+
+            <button class="buy-btn">
+                Add To Cart
+            </button>
+
+            <button class="buy-btn">
+                 <a href="home2.html">
+        Learn more
+    </a>
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="product">
+
+        <img src="images/home3.png">
+
+        <div class="product-info">
+
+            <h3>Microwave Oven</h3>
+
+            <p class="price">₹8,499</p>
+
+            <button class="buy-btn">
+                Add To Cart
+            </button>
+
+            <button class="buy-btn">
+                 <a href="home3.html">
+        Learn more
+    </a>
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="product">
+
+        <img src="images/home4.png">
+
+        <div class="product-info">
+
+            <h3>Air Fryer</h3>
+
+            <p class="price">₹4,999</p>
+
+            <button class="buy-btn">
+                Add To Cart
+            </button>
+
+            <button class="buy-btn">
+                 <a href="home4.html">
+        Learn more
+    </a>
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="product">
+
+        <img src="images/home5.png">
+
+        <div class="product-info">
+
+            <h3>Modern Lamp</h3>
+
+            <p class="price">₹1,999</p>
+
+            <button class="buy-btn">
+                Add To Cart
+            </button>
+
+            <button class="buy-btn">
+                 <a href="home5.html">
+        Learn more
+    </a>
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="product">
+
+        <img src="images/home6.png">
+
+        <div class="product-info">
+
+            <h3>Cookware Set</h3>
+
+            <p class="price">₹3,499</p>
+
+            <button class="buy-btn">
+                Add To Cart
+            </button>
+
+            <button class="buy-btn">
+                 <a href="home6.html">
+        Learn more
+    </a>
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <h3>Home & Kitchen Store</h3>
+
+    <p>Furniture, Appliances & Home Essentials</p>
+
+</footer>
+
+</body>
+</html>

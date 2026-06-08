@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Men's Jacket — Fashion Store</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent: #f43f5e;
+  --rose: #f43f5e;
+  --gold: #f59e0b;
+  --bg: #0d0a0e;
+  --card: rgba(255,255,255,0.04);
+  --border: rgba(255,255,255,0.07);
+  --muted: rgba(255,255,255,0.45);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: white; font-family: 'Cormorant Garamond', serif; overflow-x: hidden; }
+
+/* NAV */
+nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 52px; border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(13,10,14,0.9); backdrop-filter: blur(18px);
+}
+.nav-logo {
+  font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 900;
+  letter-spacing: 0.04em; text-decoration: none;
+  background: linear-gradient(135deg, var(--accent), var(--gold));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.nav-back {
+  display: inline-flex; align-items: center; gap: 8px;
+  color: var(--muted); text-decoration: none;
+  font-size: 0.78rem; font-weight: 400; letter-spacing: 0.16em;
+  text-transform: uppercase; transition: 0.3s;
+}
+.nav-back:hover { color: var(--accent); }
+
+/* HERO */
+.hero {
+  display: grid; grid-template-columns: 1fr 1fr;
+  min-height: 88vh; position: relative; overflow: hidden;
+}
+.hero-img-wrap { position: relative; overflow: hidden; min-height: 520px; }
+.hero-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; transition: 0.7s ease; }
+.hero-img-wrap img:hover { transform: scale(1.04); }
+.hero-img-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, var(--bg) 0%, rgba(13,10,14,0.2) 40%, transparent 100%);
+}
+
+.hero-content {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 80px 72px 80px 64px; position: relative; z-index: 1;
+}
+.hero-content::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 100% 80% at 70% 50%, rgba(244,63,94,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-cat {
+  font-size: 0.7rem; letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 14px; font-weight: 500;
+}
+.hero-badge {
+  display: inline-block; font-size: 0.68rem; font-weight: 500;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--bg); background: var(--accent);
+  padding: 5px 16px; margin-bottom: 20px; width: fit-content;
+}
+.hero-content h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 4.5vw, 4.2rem);
+  font-weight: 900; line-height: 1.05; letter-spacing: -0.02em;
+  margin-bottom: 18px;
+}
+.hero-tagline {
+  font-size: 1.1rem; color: var(--muted);
+  margin-bottom: 32px; line-height: 1.7;
+  font-weight: 300; font-style: italic;
+}
+.hero-price {
+  font-family: 'Playfair Display', serif; font-size: 2.8rem;
+  font-weight: 700; color: var(--accent); margin-bottom: 40px;
+  letter-spacing: -0.02em;
+}
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 15px 34px; border: none; cursor: pointer;
+  background: var(--accent); color: white;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500; font-size: 0.88rem;
+  letter-spacing: 0.14em; text-transform: uppercase; transition: 0.3s;
+}
+.btn-primary:hover { opacity: 0.85; transform: translateY(-2px); box-shadow: 0 10px 30px rgba(244,63,94,0.3); }
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 15px 28px; border: 1px solid var(--border); cursor: pointer;
+  color: var(--muted); background: transparent;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400; font-size: 0.88rem;
+  letter-spacing: 0.14em; text-transform: uppercase; transition: 0.3s;
+  text-decoration: none;
+}
+.btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ABOUT */
+.about-section {
+  max-width: 860px; margin: 0 auto; padding: 90px 52px; text-align: center;
+}
+.section-eyebrow {
+  font-size: 0.7rem; letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 16px; font-weight: 500;
+}
+.about-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem; font-weight: 700;
+  letter-spacing: -0.01em; margin-bottom: 28px;
+}
+.about-section p {
+  font-size: 1.1rem; color: rgba(255,255,255,0.5);
+  line-height: 1.95; font-weight: 300;
+}
+
+/* DIVIDER */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(244,63,94,0.4), transparent);
+  max-width: 700px; margin: 0 auto;
+}
+
+/* SPECS */
+.specs-section {
+  max-width: 1100px; margin: 0 auto; padding: 80px 52px;
+}
+.specs-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem; font-weight: 700; text-align: center;
+  letter-spacing: -0.01em; margin-bottom: 44px;
+}
+.specs-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1px; background: var(--border);
+  border: 1px solid var(--border);
+}
+.spec-card {
+  background: var(--bg); padding: 24px 26px; transition: 0.3s;
+}
+.spec-card:hover { background: rgba(255,255,255,0.03); }
+.spec-label {
+  font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--accent); font-weight: 500; margin-bottom: 10px;
+}
+.spec-value {
+  font-size: 0.95rem; color: rgba(255,255,255,0.75);
+  line-height: 1.6; font-weight: 300;
+}
+
+/* CTA */
+.cta-section {
+  text-align: center; padding: 90px 52px;
+  position: relative; overflow: hidden;
+}
+.cta-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 50% 80% at 50% 50%, rgba(244,63,94,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+.cta-section h2 {
+  font-family: 'Playfair Display', serif; font-size: 2.4rem;
+  font-weight: 900; letter-spacing: -0.02em; margin-bottom: 14px;
+}
+.cta-section p { color: var(--muted); margin-bottom: 38px; font-size: 0.95rem; letter-spacing: 0.06em; }
+
+/* FOOTER */
+footer {
+  text-align: center; padding: 44px;
+  border-top: 1px solid var(--border); background: #07050a;
+}
+footer h3 {
+  font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 900;
+  background: linear-gradient(135deg, var(--accent), var(--gold));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text; margin-bottom: 8px;
+}
+footer p { color: rgba(255,255,255,0.28); font-size: 0.85rem; letter-spacing: 0.06em; }
+
+@media (max-width: 768px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-img-wrap { min-height: 320px; order: -1; }
+  .hero-content { padding: 44px 24px; }
+  nav { padding: 18px 24px; }
+  .specs-section, .about-section, .cta-section { padding-left: 24px; padding-right: 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="fashion.html" class="nav-logo">Fashion Store</a>
+  <a href="fashion.html" class="nav-back"><i class="fa-solid fa-arrow-left"></i> &nbsp;All Products</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-img-wrap">
+    <img src="images/fashion1.png" alt="Men's Jacket">
+    <div class="hero-img-overlay"></div>
+  </div>
+  <div class="hero-content">
+    <p class="hero-cat">Men · Outerwear</p>
+    <span class="hero-badge">Bestseller</span>
+    <h1>Men's Jacket</h1>
+    <p class="hero-tagline">The jacket that commands every room.</p>
+    <p class="hero-price">₹2,999</p>
+    <div class="hero-btns">
+      <button class="btn-primary"><i class="fa-solid fa-bag-shopping"></i> &nbsp;Add To Cart</button>
+      <a href="fashion.html" class="btn-secondary"><i class="fa-solid fa-shirt"></i> &nbsp;More Styles</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section">
+  <p class="section-eyebrow">Product Story</p>
+  <h2>About This Piece</h2>
+  <p>The Men's Jacket is the cornerstone of a refined wardrobe. Constructed from a luxurious wool-cashmere blend, it drapes with effortless elegance whether you're heading to a board meeting or a weekend dinner. The slim, tailored silhouette is cut to flatter the male form — structured through the shoulders, gently tapered at the waist, with just enough room to wear over a sweater. A smooth satin viscose lining makes it easy to slip on and off, while the traditional 5-button front and deep side pockets combine function with classic style. Available in three timeless colourways — Charcoal Grey, Midnight Navy, and Camel — each piece is a lifetime investment in looking your best.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- SPECS -->
+<section class="specs-section">
+  <h2>Product Details</h2>
+  <div class="specs-grid">
+    <div class="spec-card"><div class="spec-label">Material</div><div class="spec-value">72% Wool, 20% Polyester, 8% Cashmere blend</div></div>
+    <div class="spec-card"><div class="spec-label">Fit</div><div class="spec-value">Slim fit — tailored through chest and waist</div></div>
+    <div class="spec-card"><div class="spec-label">Sizes Available</div><div class="spec-value">S, M, L, XL, XXL</div></div>
+    <div class="spec-card"><div class="spec-label">Lining</div><div class="spec-value">Satin viscose lining for smooth wear</div></div>
+    <div class="spec-card"><div class="spec-label">Closure</div><div class="spec-value">5-button front · 2 side pockets · 1 breast pocket</div></div>
+    <div class="spec-card"><div class="spec-label">Care</div><div class="spec-value">Dry clean only</div></div>
+    <div class="spec-card"><div class="spec-label">Colour Options</div><div class="spec-value">Charcoal Grey, Midnight Navy, Camel</div></div>
+    <div class="spec-card"><div class="spec-label">Origin</div><div class="spec-value">Crafted in India</div></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Make it yours.</h2>
+  <p>Free delivery across India &nbsp;·&nbsp; Easy returns within 30 days &nbsp;·&nbsp; Authentic guarantee</p>
+  <button class="btn-primary" style="font-size:0.9rem; padding:16px 46px; margin: 0 auto;">
+    <i class="fa-solid fa-bag-shopping"></i> &nbsp;Buy Now — ₹2,999
+  </button>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <h3>Fashion Store</h3>
+  <p>Trendy Styles &amp; Modern Wear</p>
+</footer>
+
+</body>
+</html>
